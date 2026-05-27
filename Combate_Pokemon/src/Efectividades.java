@@ -2,27 +2,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Efectividades {
-    private static final Map<Tipo, Map<Tipo, Double>> tablaTipos =new HashMap<>();
-
-    //Orden de tipos:
-//   NORMAL,
-//    PLANTA,
-//    FUEGO,
-//    AGUA,
-//    ELECTRICO,
-//    TIERRA,
-//    ROCA,
-//    HIELO,
-//    VOLADOR,
-//    BICHO,
-//    LUCHA,
-//    FANTASMA,
-//    PSIQUICO,
-//    SINIESTRO,
-//    VENENO,
-    // ACERO
-//    DRAGON,
-//    HADA,
+    private static final Map<Tipo, Map<Tipo, Double>> tablaTipos = new HashMap<>();
 
     static {
         Map<Tipo, Double> normal = new HashMap<>();
@@ -146,6 +126,7 @@ public class Efectividades {
         fantasma.put(Tipo.FANTASMA, 2.0);
         fantasma.put(Tipo.SINIESTRO, 0.5);
         fantasma.put(Tipo.NORMAL, 0.0);
+        fantasma.put(Tipo.LUCHA, 0.0);
         tablaTipos.put(Tipo.FANTASMA, fantasma);
 
         Map<Tipo, Double> psiquico = new HashMap<>();
@@ -199,4 +180,6 @@ public class Efectividades {
         hada.put(Tipo.ACERO, 0.5);
         tablaTipos.put(Tipo.HADA, hada);
     }
+
+    
 }

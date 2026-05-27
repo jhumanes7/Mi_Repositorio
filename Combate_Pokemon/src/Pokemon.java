@@ -75,7 +75,7 @@ public class Pokemon {
 
     public int efectividades(Ataque ataqueUsado, Pokemon pokemonDefensor) {
         int potencia = ataqueUsado.getPotencia();
-        
+        Efectividades.
         if (ataqueUsado.getTipo() == Tipo.PLANTA) {
             if (pokemonDefensor.getTipo() == Tipo.AGUA) {
                 potencia = ataqueUsado.getPotencia() * 2;
