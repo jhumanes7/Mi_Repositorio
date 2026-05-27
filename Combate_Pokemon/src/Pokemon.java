@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
+import java.util.Random;
 
 public class Pokemon {
     private String nombre;
@@ -13,22 +12,91 @@ public class Pokemon {
         this.tipo = tipo;
         this.vidaMax = vidaMax;
         this.ataques = ataques;
-        vida = vidaMax;
+        this.vida = vidaMax;
     }
 
     public boolean estaVivo() {
         return vida > 0;
     }
 
-    public void recibirDano(int dano) {
-        vida -= dano;
+    public void recibirDanio(int danio) {
+        vida -= danio;
         if (vida < 0) {
             vida = 0;
         }
     }
 
-    public int atacar(int index) {
-        return ataques[index].getPotencia();
+    public void atacar(int index, Pokemon pokemonAtacante, Pokemon pokemonDefensor, boolean atacaJugador, Random random) {
+        Ataque ataqueUsado = pokemonAtacante.getAtaques()[index];
+
+        String nombreAtacante;
+        String nombreDefensor;
+
+        int danio;
+
+        if (atacaJugador) {
+            nombreAtacante = pokemonAtacante.getNombre();
+            nombreDefensor = "El " + pokemonDefensor.getNombre() + " rival";
+        } else {
+            nombreAtacante = "El " + pokemonAtacante.getNombre() + " rival";
+            nombreDefensor = pokemonDefensor.getNombre();
+        }
+
+        int probabilidad = random.nextInt(100);
+
+        if (probabilidad >= ataqueUsado.getPrecision()) {
+            int opcion = random.nextInt(2);
+
+            switch (opcion) {
+                case 0: System.out.println(nombreDefensor + " ha esquivado el ataque");
+                break;
+
+                case 1: System.out.println(nombreAtacante + " ha fallado el ataque");
+                break;
+            }
+        } else {
+
+            danio = efectividades(ataqueUsado, pokemonDefensor);
+
+            if (ataqueUsado.getTipo() == pokemonAtacante.getTipo()) {
+                danio *= 1.5;
+            }
+
+            pokemonDefensor.recibirDanio(danio);
+
+            System.out.println("\n" + nombreAtacante + " ha usado " + ataqueUsado.getNombre() + "\n");
+            System.out.println(pokemonDefensor.getNombre() + " (" + pokemonDefensor.getVida() + "/" + pokemonDefensor.getVidaMax() + ")\n");
+
+            if (!pokemonDefensor.estaVivo()) {
+                System.out.println(nombreDefensor + " se ha debilitado");
+            }
+        }
+    }
+
+    public int efectividades(Ataque ataqueUsado, Pokemon pokemonDefensor) {
+        int potencia = ataqueUsado.getPotencia();
+        
+        if (ataqueUsado.getTipo() == Tipo.PLANTA) {
+            if (pokemonDefensor.getTipo() == Tipo.AGUA) {
+                potencia = ataqueUsado.getPotencia() * 2;
+            } else if (pokemonDefensor.getTipo() == Tipo.PLANTA || pokemonDefensor.getTipo() == Tipo.FUEGO) {
+                potencia = ataqueUsado.getPotencia() / 2;
+            }
+        } else if (ataqueUsado.getTipo() == Tipo.FUEGO) {
+            if (pokemonDefensor.getTipo() == Tipo.PLANTA) {
+                potencia = ataqueUsado.getPotencia() * 2;
+            } else if (pokemonDefensor.getTipo() == Tipo.FUEGO || pokemonDefensor.getTipo() == Tipo.AGUA) {
+                potencia = ataqueUsado.getPotencia() / 2;
+            }
+        } else if (ataqueUsado.getTipo() == Tipo.AGUA) {
+            if (pokemonDefensor.getTipo() == Tipo.FUEGO) {
+                potencia = ataqueUsado.getPotencia() * 2;
+            } else if (pokemonDefensor.getTipo() == Tipo.PLANTA || pokemonDefensor.getTipo() == Tipo.AGUA) {
+                potencia = ataqueUsado.getPotencia() / 2;
+            }
+        }
+
+        return potencia;
     }
 
     public String getNombre() {

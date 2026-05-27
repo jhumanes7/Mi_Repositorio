@@ -4,10 +4,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("PULSA ENTER PARA COMENZAR ▼");
+        sc.nextLine();
 
         Random random = new Random();
 
-        Pokemon Bulbasaur = new Pokemon(
+        Pokemon bulbasaur = new Pokemon(
                 "Bulbasaur", Tipo.PLANTA, 120,
 
                 new Ataque[] {
@@ -16,7 +18,7 @@ public class Main {
                 }
         );
 
-        Pokemon Charmander = new Pokemon(
+        Pokemon charmander = new Pokemon(
                 "Charmander", Tipo.FUEGO, 120,
 
                 new Ataque[] {
@@ -25,7 +27,7 @@ public class Main {
                 }
         );
 
-        Pokemon Squirtle = new Pokemon(
+        Pokemon squirtle = new Pokemon(
                 "Squirtle", Tipo.AGUA, 120,
 
                 new Ataque[] {
@@ -34,73 +36,83 @@ public class Main {
                 }
         );
 
-        Pokemon[] pool = {Bulbasaur, Charmander, Squirtle};
+        Pokemon[] pool = {bulbasaur, charmander, squirtle};
 
-        System.out.println("Elige a tu pokemon: \n");
-        for (int i = 0; i < pool.length; i++) {
-            System.out.println((i + 1) + ". " + pool[i].getNombre() + "\n");
-        }
-        int eleccion = sc.nextInt();
+        int eleccion;
+
+        do {
+            System.out.println("ELIGE A TU POKEMON");
+            for (int i = 0; i < pool.length; i++) {
+                System.out.println((i + 1) + ". " + pool[i].getNombre());
+            }
+            eleccion = sc.nextInt();
+            sc.nextLine();
+
+            if (eleccion < 1 || eleccion > pool.length) {
+                System.out.println("\n--Número Incorrecto--\n");
+            }
+
+        } while (eleccion < 1 || eleccion > pool.length);
 
         Pokemon pokemonJugador = pool[eleccion - 1];
 
         Pokemon pokemonRival = null;
 
-        if (pokemonJugador == Bulbasaur) {
-            pokemonRival = Charmander;
-        } else if (pokemonJugador == Charmander) {
-            pokemonRival = Squirtle;
-        } else if (pokemonJugador == Squirtle) {
-            pokemonRival = Bulbasaur;
+        if (pokemonJugador == bulbasaur) {
+            pokemonRival = charmander;
+        } else if (pokemonJugador == charmander) {
+            pokemonRival = squirtle;
+        } else if (pokemonJugador == squirtle) {
+            pokemonRival = bulbasaur;
         }
 
-
-        System.out.println("\nEmpieza el combate: \n");
+        System.out.println("\nEMPIEZA EL COMBATE ▼");
+        sc.nextLine();
 
         System.out.println("Adelante " + pokemonJugador.getNombre() + "\n");
 
-        System.out.println("El rival ha elegido a " + pokemonRival.getNombre() + "\n");
+        System.out.println("Tu rival ha elegido a " + pokemonRival.getNombre() + "\n");
 
         while (pokemonJugador.estaVivo() && pokemonRival.estaVivo()) {
 
-            System.out.println("Turno del jugador:");
+            System.out.println("TURNO DEL JUGADOR ▼");
+            sc.nextLine();
 
-            for (int i = 0; i < pokemonJugador.getAtaques().length; i++) {
-                System.out.println((i + 1) + ". " + pokemonJugador.getAtaques()[i].getNombre() +
-                        " (potencia " + pokemonJugador.getAtaques()[i].getPotencia() + ")");
-            }
+            System.out.println("ELIGE UN ATAQUE");
 
-            int ataqueJugador = sc.nextInt() - 1;
+            int ataqueJugador;
 
-            System.out.println("Tu pokemon ha usado " + pokemonJugador.getAtaques()[ataqueJugador].getNombre());
+            do {
+                for (int i = 0; i < pokemonJugador.getAtaques().length; i++) {
+                    System.out.println((i + 1) + ". " + pokemonJugador.getAtaques()[i].getNombre() +
+                            " (potencia " + pokemonJugador.getAtaques()[i].getPotencia() + ")");
+                }
 
-            int dano = pokemonJugador.getAtaques()[ataqueJugador].getPotencia();
-            pokemonRival.recibirDano(dano);
+                ataqueJugador = sc.nextInt() - 1;
+                sc.nextLine();
 
-            System.out.println("\nEl pokemon rival ha perdido " + pokemonJugador.getAtaques()[ataqueJugador].getPotencia() + " PS (" + pokemonRival.getVida() + "/" + pokemonRival.getVidaMax() + ") \n");
+                if (ataqueJugador < 0 || ataqueJugador >= pokemonJugador.getAtaques().length) {
+                    System.out.println("\n--Número Incorrecto--\n");
+                }
+
+            } while (ataqueJugador < 0 || ataqueJugador >= pokemonJugador.getAtaques().length);
+
+            pokemonJugador.atacar(ataqueJugador, pokemonJugador, pokemonRival, true, random);
 
             if (!pokemonRival.estaVivo()) {
-                System.out.println("""
-                        El pokemon rival se ha debilitado.
-                        ¡Has ganado el combate!"""); break;
+                System.out.println("¡HAS GANADO EL COMBATE!");
+                break;
             }
 
-            System.out.println("Turno del rival: \n");
-
+            System.out.print("TURNO DEL RIVAL ▼");
+            sc.nextLine();
 
             int ataqueRival = random.nextInt(pokemonRival.getAtaques().length);
 
-            System.out.println("El pokemon rival a usado " + pokemonRival.getAtaques()[ataqueRival].getNombre() + "\n");
-
-            dano = pokemonRival.getAtaques()[ataqueRival].getPotencia();
-            pokemonJugador.recibirDano(dano);
-
-            System.out.println("Tu pokemon ha perdido " + pokemonRival.getAtaques()[ataqueRival].getPotencia() + " PS (" + pokemonJugador.getVida() + "/" + pokemonJugador.getVidaMax() + ") \n");
+            pokemonRival.atacar(ataqueRival, pokemonRival, pokemonJugador,false, random);
 
             if (!pokemonJugador.estaVivo()) {
-                System.out.println("""
-                        Tu pokemon ha sido debilitado.
-                        ¡Has perdido el combate!""");
+                System.out.println("¡HAS PERDIDO EL COMBATE!");
                 break;
             }
         }
