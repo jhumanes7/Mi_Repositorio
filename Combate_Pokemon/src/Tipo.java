@@ -17,7 +17,5 @@ public enum Tipo {
     ACERO,
     DRAGON,
     HADA,
-
-
 }
 

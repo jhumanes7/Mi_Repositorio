@@ -3,12 +3,14 @@ public class Ataque {
     private int potencia;
     private int precision;
     private Tipo tipo;
+    private CategoriaAtaque categoria;
 
-    public Ataque(String nombre, int potencia, int precision, Tipo tipo) {
+    public Ataque(String nombre, int potencia, int precision, Tipo tipo, CategoriaAtaque categoria) {
         this.nombre = nombre;
         this.potencia = potencia;
         this.precision = precision;
         this.tipo = tipo;
+        this.categoria = categoria;
     }
 
     public String getNombre() {
@@ -41,6 +43,14 @@ public class Ataque {
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
+    }
+
+    public CategoriaAtaque getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaAtaque categoria) {
+        this.categoria = categoria;
     }
 
     @Override

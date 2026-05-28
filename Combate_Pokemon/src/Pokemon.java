@@ -1,18 +1,33 @@
+import java.util.List;
 import java.util.Random;
 
 public class Pokemon {
+    private final int numPokedex;
     private String nombre;
+    private int nivel;
     private Tipo tipo;
     private int vidaMax;
     private int vida;
-    private Ataque[] ataques;
+    private int ataqueFisico;
+    private int defensaFisica;
+    private int ataqueEspecial;
+    private int defensaEspecial;
+    private int velocidad;
+    private List<Ataque> ataques;
 
-    public Pokemon(String nombre, Tipo tipo, int vidaMax, Ataque[] ataques) {
+    public Pokemon(int numPokedex, String nombre, int nivel, Tipo tipo, int vidaBase, int ataqueBase, int defensaBase, int ataqueEBase, int defensaEBase, int velocidadBase, List<Ataque> ataques) {
+        this.numPokedex = numPokedex;
         this.nombre = nombre;
+        this.nivel = nivel;
         this.tipo = tipo;
-        this.vidaMax = vidaMax;
-        this.ataques = ataques;
+        this.vidaMax = ((2 * vidaBase * nivel) / 100) + nivel + 10;
         this.vida = vidaMax;
+        this.ataqueFisico = ((2 * ataqueBase * nivel) / 100) + 5;
+        this.defensaFisica = ((2 * defensaBase * nivel) / 100) + 5;
+        this.ataqueEspecial = ((2 * ataqueEBase * nivel) / 100) + 5;
+        this.defensaEspecial = ((2 * defensaEBase * nivel) / 100) + 5;
+        this.velocidad = ((2 * velocidadBase * nivel) / 100) + 5;
+        this.ataques = ataques;
     }
 
     public boolean estaVivo() {
@@ -26,19 +41,17 @@ public class Pokemon {
         }
     }
 
-    public void atacar(int index, Pokemon pokemonAtacante, Pokemon pokemonDefensor, boolean atacaJugador, Random random) {
-        Ataque ataqueUsado = pokemonAtacante.getAtaques()[index];
+    public void atacar(int index, Pokemon pokemonDefensor, boolean atacaJugador, Random random) {
+        Ataque ataqueUsado = this.getAtaques().get(index);
 
         String nombreAtacante;
         String nombreDefensor;
 
-        int danio;
-
         if (atacaJugador) {
-            nombreAtacante = pokemonAtacante.getNombre();
+            nombreAtacante = this.getNombre();
             nombreDefensor = "El " + pokemonDefensor.getNombre() + " rival";
         } else {
-            nombreAtacante = "El " + pokemonAtacante.getNombre() + " rival";
+            nombreAtacante = "El " + this.getNombre() + " rival";
             nombreDefensor = pokemonDefensor.getNombre();
         }
 
@@ -48,55 +61,28 @@ public class Pokemon {
             int opcion = random.nextInt(2);
 
             switch (opcion) {
-                case 0: System.out.println(nombreDefensor + " ha esquivado el ataque");
+                case 0: System.out.println("\n" + nombreDefensor + " ha esquivado el ataque\n");
                 break;
 
-                case 1: System.out.println(nombreAtacante + " ha fallado el ataque");
+                case 1: System.out.println("\n" + nombreAtacante + " ha fallado el ataque\n");
                 break;
             }
         } else {
+            System.out.println("\n" + nombreAtacante + " ha usado " + ataqueUsado.getNombre());
 
-            danio = efectividades(ataqueUsado, pokemonDefensor);
-
-            if (ataqueUsado.getTipo() == pokemonAtacante.getTipo()) {
-                danio *= 1.5;
-            }
+            int danio = SistemaCombate.calculadorDanio(ataqueUsado, this, pokemonDefensor, atacaJugador, random);
 
             pokemonDefensor.recibirDanio(danio);
-
-            System.out.println("\n" + nombreAtacante + " ha usado " + ataqueUsado.getNombre() + "\n");
-            System.out.println(pokemonDefensor.getNombre() + " (" + pokemonDefensor.getVida() + "/" + pokemonDefensor.getVidaMax() + ")\n");
+            System.out.println("\n" + pokemonDefensor.getNombre() + " (" + pokemonDefensor.getVida() + "/" + pokemonDefensor.getVidaMax() + ")");
 
             if (!pokemonDefensor.estaVivo()) {
-                System.out.println(nombreDefensor + " se ha debilitado");
+                System.out.println("\n" + nombreDefensor + " se ha debilitado");
             }
         }
     }
 
-    public int efectividades(Ataque ataqueUsado, Pokemon pokemonDefensor) {
-        int potencia = ataqueUsado.getPotencia();
-        Efectividades.
-        if (ataqueUsado.getTipo() == Tipo.PLANTA) {
-            if (pokemonDefensor.getTipo() == Tipo.AGUA) {
-                potencia = ataqueUsado.getPotencia() * 2;
-            } else if (pokemonDefensor.getTipo() == Tipo.PLANTA || pokemonDefensor.getTipo() == Tipo.FUEGO) {
-                potencia = ataqueUsado.getPotencia() / 2;
-            }
-        } else if (ataqueUsado.getTipo() == Tipo.FUEGO) {
-            if (pokemonDefensor.getTipo() == Tipo.PLANTA) {
-                potencia = ataqueUsado.getPotencia() * 2;
-            } else if (pokemonDefensor.getTipo() == Tipo.FUEGO || pokemonDefensor.getTipo() == Tipo.AGUA) {
-                potencia = ataqueUsado.getPotencia() / 2;
-            }
-        } else if (ataqueUsado.getTipo() == Tipo.AGUA) {
-            if (pokemonDefensor.getTipo() == Tipo.FUEGO) {
-                potencia = ataqueUsado.getPotencia() * 2;
-            } else if (pokemonDefensor.getTipo() == Tipo.PLANTA || pokemonDefensor.getTipo() == Tipo.AGUA) {
-                potencia = ataqueUsado.getPotencia() / 2;
-            }
-        }
-
-        return potencia;
+    public int getNumPokedex() {
+        return numPokedex;
     }
 
     public String getNombre() {
@@ -131,11 +117,51 @@ public class Pokemon {
         this.vida = vida;
     }
 
-    public Ataque[] getAtaques() {
+    public List<Ataque> getAtaques() {
         return ataques;
     }
 
-    public void setAtaques(Ataque[] ataques) {
+    public int getAtaqueFisico() {
+        return ataqueFisico;
+    }
+
+    public void setAtaqueFisico(int ataqueFisico) {
+        this.ataqueFisico = ataqueFisico;
+    }
+
+    public int getDefensaFisica() {
+        return defensaFisica;
+    }
+
+    public void setDefensaFisica(int defensaFisica) {
+        this.defensaFisica = defensaFisica;
+    }
+
+    public int getAtaqueEspecial() {
+        return ataqueEspecial;
+    }
+
+    public void setAtaqueEspecial(int ataqueEspecial) {
+        this.ataqueEspecial = ataqueEspecial;
+    }
+
+    public int getDefensaEspecial() {
+        return defensaEspecial;
+    }
+
+    public void setDefensaEspecial(int defensaEspecial) {
+        this.defensaEspecial = defensaEspecial;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public void setAtaques(List<Ataque> ataques) {
         this.ataques = ataques;
     }
 }

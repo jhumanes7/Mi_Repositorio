@@ -4,6 +4,16 @@ import java.util.HashMap;
 public class Efectividades {
     private static final Map<Tipo, Map<Tipo, Double>> tablaTipos = new HashMap<>();
 
+    public static double multiplicador(Tipo tipoAtaque, Tipo tipoDefensor) {
+        Map<Tipo, Double> filas = tablaTipos.get(tipoAtaque);
+
+        if (filas == null) {
+            return 1.0;
+        }
+
+        return filas.getOrDefault(tipoDefensor, 1.0);
+    }
+
     static {
         Map<Tipo, Double> normal = new HashMap<>();
         normal.put(Tipo.ROCA, 0.5);
@@ -180,6 +190,4 @@ public class Efectividades {
         hada.put(Tipo.ACERO, 0.5);
         tablaTipos.put(Tipo.HADA, hada);
     }
-
-    
 }
