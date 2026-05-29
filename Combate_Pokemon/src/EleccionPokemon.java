@@ -13,8 +13,13 @@ public class EleccionPokemon {
 
         do {
             System.out.println("ELIGE A TU POKEMON");
-            for (int i = 0; i < pool.size(); i++) {
-                System.out.println((i + 1) + ". " + pool.get(i).getNombre());
+            for (int i = 1; i <= pool.size(); i++) {
+
+                System.out.printf("%-20s", i + ". " + pool.get(i - 1).getNombre());
+
+                if (i % 5 == 0) {
+                    System.out.println();
+                }
             }
             eleccion = sc.nextInt();
             sc.nextLine();

@@ -4,13 +4,15 @@ public class Ataque {
     private int precision;
     private Tipo tipo;
     private CategoriaAtaque categoria;
+    private int pp;
 
-    public Ataque(String nombre, int potencia, int precision, Tipo tipo, CategoriaAtaque categoria) {
+    public Ataque(String nombre, int potencia, int precision, Tipo tipo, CategoriaAtaque categoria, int pp) {
         this.nombre = nombre;
         this.potencia = potencia;
         this.precision = precision;
         this.tipo = tipo;
         this.categoria = categoria;
+        this.pp = pp;
     }
 
     public String getNombre() {

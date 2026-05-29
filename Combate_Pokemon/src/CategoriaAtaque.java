@@ -1,4 +1,5 @@
 public enum CategoriaAtaque {
     FISICO,
-    ESPECIAL
+    ESPECIAL,
+    ESTADO
 }

@@ -8,7 +8,7 @@ public class SistemaCombate {
 
         System.out.println("Adelante " + pokemonJugador.getNombre() + "\n");
 
-        System.out.println("Tu rival ha elegido a " + pokemonRival.getNombre());
+        System.out.println("El enemigo ha elegido a " + pokemonRival.getNombre());
 
         int contador = 0;
 
@@ -87,7 +87,12 @@ public class SistemaCombate {
     }
 
     public static int calculadorDanio (Ataque ataqueUsado, Pokemon pokemonAtacante, Pokemon pokemonDefensor, boolean atacaJugador, Random random) {
-        double multiplicador = Efectividades.multiplicador(ataqueUsado.getTipo(), pokemonDefensor.getTipo());
+
+        double multiplicador = 1.0;
+
+        for (int i = 0; i < pokemonDefensor.getTipos().size(); i++) {
+            multiplicador *= Efectividades.multiplicador(ataqueUsado.getTipo(), pokemonDefensor.getTipos().get(i));
+        }
 
         double danio = 0;
 
@@ -97,13 +102,15 @@ public class SistemaCombate {
             danio = ((double) (pokemonAtacante.getAtaqueEspecial() * ataqueUsado.getPotencia()) / pokemonDefensor.getDefensaEspecial()) + 2;
         }
 
-        if (pokemonAtacante.getTipo() == ataqueUsado.getTipo()) {
-            danio *= 1.5;
+        for (int i = 0; i < pokemonAtacante.getTipos().size(); i++) {
+            if (pokemonAtacante.getTipos().get(i) == ataqueUsado.getTipo()) {
+                danio *= 1.5;
+            }
         }
 
         if (multiplicador == 0.0) {
             if (atacaJugador) {
-                System.out.println("¡No afecta al" + pokemonDefensor.getNombre() + " rival");
+                System.out.println("¡No afecta al " + pokemonDefensor.getNombre() + " enemigo");
                 return 0;
             } else {
                 System.out.println("¡No afecta a " + pokemonDefensor.getNombre());

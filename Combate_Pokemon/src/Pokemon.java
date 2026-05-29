@@ -5,7 +5,7 @@ public class Pokemon {
     private final int numPokedex;
     private String nombre;
     private int nivel;
-    private Tipo tipo;
+    private List<Tipo> tipos;
     private int vidaMax;
     private int vida;
     private int ataqueFisico;
@@ -15,11 +15,11 @@ public class Pokemon {
     private int velocidad;
     private List<Ataque> ataques;
 
-    public Pokemon(int numPokedex, String nombre, int nivel, Tipo tipo, int vidaBase, int ataqueBase, int defensaBase, int ataqueEBase, int defensaEBase, int velocidadBase, List<Ataque> ataques) {
+    public Pokemon(int numPokedex, String nombre, int nivel, List<Tipo> tipos, int vidaBase, int ataqueBase, int defensaBase, int ataqueEBase, int defensaEBase, int velocidadBase, List<Ataque> ataques) {
         this.numPokedex = numPokedex;
         this.nombre = nombre;
         this.nivel = nivel;
-        this.tipo = tipo;
+        this.tipos = tipos;
         this.vidaMax = ((2 * vidaBase * nivel) / 100) + nivel + 10;
         this.vida = vidaMax;
         this.ataqueFisico = ((2 * ataqueBase * nivel) / 100) + 5;
@@ -49,13 +49,19 @@ public class Pokemon {
 
         if (atacaJugador) {
             nombreAtacante = this.getNombre();
-            nombreDefensor = "El " + pokemonDefensor.getNombre() + " rival";
+            nombreDefensor = "El " + pokemonDefensor.getNombre() + " enemigo";
         } else {
-            nombreAtacante = "El " + this.getNombre() + " rival";
+            nombreAtacante = "El " + this.getNombre() + " enemigo";
             nombreDefensor = pokemonDefensor.getNombre();
         }
 
-        int probabilidad = random.nextInt(100);
+        int probabilidad;
+
+        if (ataqueUsado.getPrecision() == 0) {
+            probabilidad = -1;
+        } else {
+            probabilidad = random.nextInt(100);
+        }
 
         if (probabilidad >= ataqueUsado.getPrecision()) {
             int opcion = random.nextInt(2);
@@ -93,12 +99,12 @@ public class Pokemon {
         this.nombre = nombre;
     }
 
-    public Tipo getTipo() {
-        return tipo;
+    public List<Tipo> getTipos() {
+        return tipos;
     }
 
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
+    public void setTipos(List<Tipo> tipos) {
+        this.tipos = tipos;
     }
 
     public int getVidaMax() {

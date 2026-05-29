@@ -17,3 +17,4 @@ Main {
         SistemaCombate.combate(pokemonJugador, pokemonRival, sc, random);
     }
 }
+
