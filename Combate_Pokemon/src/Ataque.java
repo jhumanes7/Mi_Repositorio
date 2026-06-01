@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Ataque {
     private String nombre;
     private int potencia;

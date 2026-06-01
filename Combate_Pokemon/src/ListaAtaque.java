@@ -1,17 +1,32 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ListaAtaque {
     private static final List<Ataque> ataques = new ArrayList<>();
+    private static final Map<String, Ataque> mapaAtaques = new HashMap<>();
 
     static {
-        ataques.add(new Ataque("Cuchillada", 70, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 20));
-        ataques.add(new Ataque("Velocidad Extrema", 80, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 5));
+        ataques.add(new Ataque("Acupresión", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30));
+        ataques.add(new Ataque("Adaptación", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30));
+        ataques.add(new Ataque("Afilar", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20));
+        ataques.add(new Ataque("Agarre", 55, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 30));
+        ataques.add(new Ataque("Agarrón", 0, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 5));
+        ataques.add(new Ataque("Agitacola", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30));
+        ataques.add(new Ataque("Aguante", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 10));
+        ataques.add(new Ataque("Aguzar", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30));
+        ataques.add(new Ataque("Alboroto", 90, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10));
+        ataques.add(new Ataque("Alivio", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20));
+        ataques.add(new Ataque("Amago", 30, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 10));
+        ataques.add(new Ataque("Antojo", 30, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 10));
+        ataques.add(new Ataque("Anulación", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20));
+        ataques.add(new Ataque("Estruendo", 140, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10));
+        ataques.add(new Ataque("Giro Rápido", 50, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 40));
         ataques.add(new Ataque("Megapatada", 120, 75, Tipo.NORMAL, CategoriaAtaque.FISICO, 5));
         ataques.add(new Ataque("Meteorobola", 50, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10));
         ataques.add(new Ataque("Triataque", 80, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Estruendo", 140, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Anulación", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20));
+        ataques.add(new Ataque("Velocidad Extrema", 80, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 5));
 
         ataques.add(new Ataque("Hoja Aguda", 90, 100, Tipo.PLANTA, CategoriaAtaque.FISICO, 15));
         ataques.add(new Ataque("Asta Drenaje", 90, 100, Tipo.PLANTA, CategoriaAtaque.FISICO, 10));
@@ -19,22 +34,22 @@ public class ListaAtaque {
         ataques.add(new Ataque("Gigadrenado", 75, 100, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 10));
         ataques.add(new Ataque("Rayo Solar", 120, 100, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 10));
         ataques.add(new Ataque("Lluevehojas", 130, 90, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 5));
-        ataques.add(new Ataque("Espora", 0, 100, Tipo.PLANTA, CategoriaAtaque.ESTADO, 15));
+        ataques.add(new Ataque("Somnífero", 0, 75, Tipo.PLANTA, CategoriaAtaque.ESTADO, 15));
 
         ataques.add(new Ataque("Puño Fuego", 75, 100, Tipo.FUEGO, CategoriaAtaque.FISICO, 15));
         ataques.add(new Ataque("Patada Ígnea", 85, 90, Tipo.FUEGO, CategoriaAtaque.FISICO, 10));
         ataques.add(new Ataque("Envite Ígneo", 120, 100, Tipo.FUEGO, CategoriaAtaque.FISICO, 15));
         ataques.add(new Ataque("Pirotecnia", 70, 100, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 15));
         ataques.add(new Ataque("Lanzallamas", 90, 100, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Llama Azul", 130, 85, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 5));
+        ataques.add(new Ataque("Anillo Ígneo", 150, 90, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 5));
         ataques.add(new Ataque("Día Soleado", 0, 0, Tipo.FUEGO, CategoriaAtaque.ESTADO, 5));
 
         ataques.add(new Ataque("Cascada", 80, 100, Tipo.AGUA, CategoriaAtaque.FISICO, 15));
         ataques.add(new Ataque("Martillazo", 100, 95, Tipo.AGUA, CategoriaAtaque.FISICO, 10));
         ataques.add(new Ataque("Tajo Acuático", 70, 100, Tipo.AGUA, CategoriaAtaque.FISICO, 20));
         ataques.add(new Ataque("Surf", 90, 100, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Agua Lodosa", 90, 85, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Pulso Primigenio", 110, 85, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 10));
+        ataques.add(new Ataque("Hidrobomba", 110, 80, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 5));
+        ataques.add(new Ataque("Hidrocañón", 150, 90, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 5));
         ataques.add(new Ataque("Hidrochorro", 0, 0, Tipo.AGUA, CategoriaAtaque.ESTADO, 15));
 
         ataques.add(new Ataque("Chispa", 65, 100, Tipo.ELECTRICO, CategoriaAtaque.FISICO, 20));
@@ -133,8 +148,8 @@ public class ListaAtaque {
         ataques.add(new Ataque("Deseo Oculto", 140, 100, Tipo.ACERO, CategoriaAtaque.ESPECIAL, 5));
         ataques.add(new Ataque("Cambio de Marcha", 0, 0, Tipo.ACERO, CategoriaAtaque.ESTADO, 10));
 
-        ataques.add(new Ataque("Golpe Bis", 40, 90, Tipo.DRAGON, CategoriaAtaque.FISICO, 15));
         ataques.add(new Ataque("Cola Dragón", 60, 90, Tipo.DRAGON, CategoriaAtaque.FISICO, 10));
+        ataques.add(new Ataque("Garra Dragón", 80, 100, Tipo.DRAGON, CategoriaAtaque.FISICO, 15));
         ataques.add(new Ataque("Enfado", 120, 100, Tipo.DRAGON, CategoriaAtaque.FISICO, 10));
         ataques.add(new Ataque("Furia Dragón", 40, 100, Tipo.DRAGON, CategoriaAtaque.ESPECIAL, 10));
         ataques.add(new Ataque("Pulso Dragón", 85, 100, Tipo.DRAGON, CategoriaAtaque.ESPECIAL, 10));
@@ -148,9 +163,17 @@ public class ListaAtaque {
         ataques.add(new Ataque("Fuerza Lunar", 95, 100, Tipo.HADA, CategoriaAtaque.ESPECIAL, 15));
         ataques.add(new Ataque("Feerichoque", 100, 100, Tipo.HADA, CategoriaAtaque.ESPECIAL, 10));
         ataques.add(new Ataque("Cerrojo Feérico", 0, 0, Tipo.HADA, CategoriaAtaque.ESTADO, 10));
+
+        for (Ataque ataque : ataques) {
+            mapaAtaques.put(ataque.getNombre(), ataque);
+        }
     }
 
     public static List<Ataque> getListaAtaques (){
         return ataques;
+    }
+
+    public static Ataque getAtaque(String nombre) {
+        return mapaAtaques.get(nombre);
     }
 }
