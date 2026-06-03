@@ -19,8 +19,10 @@ public class ListaAtaque {
         ataques.add(new Ataque("Alboroto", 90, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10));
         ataques.add(new Ataque("Alivio", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20));
         ataques.add(new Ataque("Amago", 30, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Antojo", 30, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 10));
+        ataques.add(new Ataque("Antojo", 60, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 25));
         ataques.add(new Ataque("Anulación", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20));
+        ataques.add(new Ataque("Arañazo", 40, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 35));
+        ataques.add(new Ataque("Ariete", 120, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 15));
         ataques.add(new Ataque("Estruendo", 140, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10));
         ataques.add(new Ataque("Giro Rápido", 50, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 40));
         ataques.add(new Ataque("Megapatada", 120, 75, Tipo.NORMAL, CategoriaAtaque.FISICO, 5));
