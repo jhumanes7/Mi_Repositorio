@@ -8,14 +8,21 @@ public class Ataque {
     private Tipo tipo;
     private CategoriaAtaque categoria;
     private int pp;
+    private int prioridad;
+    private boolean contacto;
+    private AtributoAtaque atributo;
 
-    public Ataque(String nombre, int potencia, int precision, Tipo tipo, CategoriaAtaque categoria, int pp) {
+
+    public Ataque(String nombre, int potencia, int precision, Tipo tipo, CategoriaAtaque categoria, int pp, int prioridad, boolean contacto, AtributoAtaque atributo) {
         this.nombre = nombre;
         this.potencia = potencia;
         this.precision = precision;
         this.tipo = tipo;
         this.categoria = categoria;
         this.pp = pp;
+        this.prioridad = prioridad;
+        this.contacto = contacto;
+        this.atributo = atributo;
     }
 
     public String getNombre() {
