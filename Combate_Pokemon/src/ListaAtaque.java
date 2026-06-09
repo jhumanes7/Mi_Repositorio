@@ -8,149 +8,189 @@ public class ListaAtaque {
     private static final Map<String, Ataque> mapaAtaques = new HashMap<>();
 
     static {
-        ataques.add(new Ataque("Giro Rápido", 50, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 40, 0, true, null));
-        ataques.add(new Ataque("Velocidad Extrema", 80, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 5, 2, true, null));
-        ataques.add(new Ataque("Megapatada", 120, 75, Tipo.NORMAL, CategoriaAtaque.FISICO, 5, 0, true, null));
-        ataques.add(new Ataque("Meteorobola", 50, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10, 0, false, AtributoAtaque.PROYECTIL));
-        ataques.add(new Ataque("Triataque", 80, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10, 0, false, null));
-        ataques.add(new Ataque("Estruendo", 140, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10, 0, false, AtributoAtaque.SONIDO));
+        ataques.add(new Ataque("Afilar", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Agarre", 55, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 30, 0, true, null));
         ataques.add(new Ataque("Anulación", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20, 0, false, null));
+        ataques.add(new Ataque("Arañazo", 40, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 35, 0, true, null));
+        ataques.add(new Ataque("Atadura", 15, 85, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, true, null)); //
+        ataques.add(new Ataque("Ataque Furia", 15, 85, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, true, null)); //
+        ataques.add(new Ataque("Ataque Rápido", 40, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 30, 1, true, null));
+        ataques.add(new Ataque("Atizar", 80, 75, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, true, null));
+        ataques.add(new Ataque("Autodestrucción", 200, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 5, 0, false, null)); //
+        ataques.add(new Ataque("Beso Amoroso", 0, 75, Tipo.NORMAL, CategoriaAtaque.ESTADO, 10, 0, false, null));
+        ataques.add(new Ataque("Bomba Huevo", 100, 75, Tipo.NORMAL, CategoriaAtaque.FISICO, 10, 0, false, AtributoAtaque.PROYECTIL));
+        ataques.add(new Ataque("Bomba Sónica", 60, 90, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 20, 0, false, null)); //
+        ataques.add(new Ataque("Bombardeo", 15, 85, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, false, AtributoAtaque.PROYECTIL)); //
+        ataques.add(new Ataque("Cabezazo", 130, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 10, 0, true, null)); //
+        ataques.add(new Ataque("Canto", 0, 55, Tipo.NORMAL, CategoriaAtaque.ESTADO, 15, 0, false, AtributoAtaque.SONIDO));
+        ataques.add(new Ataque("Chirrido", 0, 85, Tipo.NORMAL, CategoriaAtaque.ESTADO, 40, 0, false, AtributoAtaque.SONIDO));
+        ataques.add(new Ataque("Clavo Cañón", 20, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 15, 0, false, null)); //
+        ataques.add(new Ataque("Constricción", 15, 90, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, true, null)); //
+        ataques.add(new Ataque("Conversión", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Cornada", 65, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 25, 0, true, null));
+        ataques.add(new Ataque("Corte", 50, 95, Tipo.NORMAL, CategoriaAtaque.FISICO, 30, 0, true, AtributoAtaque.CORTE));
+        ataques.add(new Ataque("Cuchillada", 70, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, true, AtributoAtaque.CORTE)); //
+        ataques.add(new Ataque("Danza Espada", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20, 0, false, AtributoAtaque.DANZA));
+        ataques.add(new Ataque("Danza Espada", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20, 0, false, AtributoAtaque.DANZA));
+        ataques.add(new Ataque("Derribo", 90, 85, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, true, null)); //
+        ataques.add(new Ataque("Deslumbrar", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Destello", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20, 0, false, null));
+        ataques.add(new Ataque("Destructor", 40, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 35, 0, true, null)); //
+        ataques.add(new Ataque("Día de Pago", 40, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, false, null)); //
+        ataques.add(new Ataque("Doble Bofetón", 15, 85, Tipo.NORMAL, CategoriaAtaque.FISICO, 10, 0, true, null)); //
+        ataques.add(new Ataque("Doble Equipo", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 15, 0, false, null));
+        ataques.add(new Ataque("Doble Filo", 120, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 15, 0, true, null)); //
+        ataques.add(new Ataque("Explosión", 250, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 5, 0, false, null)); //
+        ataques.add(new Ataque("Foco Energía", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Forcejeo", 50, 0, Tipo.NORMAL, CategoriaAtaque.FISICO, 1, 0, true, null));
+        ataques.add(new Ataque("Fortaleza", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Fuerza", 80, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 15, 0, true, null));
+        ataques.add(new Ataque("Furia", 20, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, false, null)); //
+        ataques.add(new Ataque("Golpe Cabeza", 70, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 15, 0, true, null)); //
+        ataques.add(new Ataque("Golpe Cuerpo", 85, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 15, 0, true, null)); //
+        ataques.add(new Ataque("Golpes Furia", 18, 80, Tipo.NORMAL, CategoriaAtaque.FISICO, 15, 0, true, null)); //
+        ataques.add(new Ataque("Gruñido", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 40, 0, false, AtributoAtaque.SONIDO));
+        ataques.add(new Ataque("Guillotina", 1000, 30, Tipo.NORMAL, CategoriaAtaque.FISICO, 5, 0, true, null)); //
+        ataques.add(new Ataque("Hipercolmillo", 80, 90, Tipo.NORMAL, CategoriaAtaque.FISICO, 15, 0, true, AtributoAtaque.MORDISCO)); //
+        ataques.add(new Ataque("Hiperrayo", 150, 90, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 5, 0, false, null)); //
+        ataques.add(new Ataque("Látigo", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Malicioso", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Megapatada", 120, 75, Tipo.NORMAL, CategoriaAtaque.FISICO, 5, 0, true, null));
+        ataques.add(new Ataque("Megapuño", 80, 85, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, true, AtributoAtaque.PUNIO));
+        ataques.add(new Ataque("Meteoros", 60, 0, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 20, 0, false, null));
+        ataques.add(new Ataque("Metrónomo", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 10, 0, false, null));
+        ataques.add(new Ataque("Mimético", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 10, 0, false, null));
+        ataques.add(new Ataque("Ovocuración", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 5, 0, false, AtributoAtaque.CURACION));
+        ataques.add(new Ataque("Pantalla de Humo", 0, 100, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20, 0, false, null));
+        ataques.add(new Ataque("Perforador", 1000, 30, Tipo.NORMAL, CategoriaAtaque.FISICO, 5, 0, true, null)); //
+        ataques.add(new Ataque("Pisotón", 65, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 20, 0, true, null)); //
+        ataques.add(new Ataque("Placaje", 40, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 35, 0, true, null));
+        ataques.add(new Ataque("Puño Cometa", 18, 85, Tipo.NORMAL, CategoriaAtaque.FISICO, 15, 0, true, AtributoAtaque.PUNIO)); //
+        ataques.add(new Ataque("Puño Mareo", 70, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 10, 0, true, AtributoAtaque.PUNIO)); //
+        ataques.add(new Ataque("Recuperación", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 5, 0, false, AtributoAtaque.CURACION));
+        ataques.add(new Ataque("Reducción", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 10, 0, false, null));
+        ataques.add(new Ataque("Remolino", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20, -6, false, AtributoAtaque.VIENTO));
+        ataques.add(new Ataque("Restricción", 10, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 35, 0, true, null)); //
+        ataques.add(new Ataque("Rizo Defensa", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 40, 0, false, null));
+        ataques.add(new Ataque("Rugido", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20, 0, false, AtributoAtaque.SONIDO));
+        ataques.add(new Ataque("Salpicadura", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 40, 0, false, null));
+        ataques.add(new Ataque("Saña", 120, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 10, 0, true, null)); //
+        ataques.add(new Ataque("Superdiente", 60, 90, Tipo.NORMAL, CategoriaAtaque.FISICO, 10, 0, true, null)); //
+        ataques.add(new Ataque("Supersónico", 0, 55, Tipo.NORMAL, CategoriaAtaque.ESTADO, 20, 0, false, AtributoAtaque.SONIDO));
+        ataques.add(new Ataque("Sustituto", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 10, 0, false, null));
+        ataques.add(new Ataque("Transformación", 0, 0, Tipo.NORMAL, CategoriaAtaque.ESTADO, 10, 0, false, null));
+        ataques.add(new Ataque("Triataque", 80, 100, Tipo.NORMAL, CategoriaAtaque.FISICO, 10, 0, false, null)); //
+        ataques.add(new Ataque("Venganza", 60, 0, Tipo.NORMAL, CategoriaAtaque.FISICO, 10, 1, true, null)); //
+        ataques.add(new Ataque("Viento Cortante", 80, 100, Tipo.NORMAL, CategoriaAtaque.ESPECIAL, 10, 0, false, null)); //
 
-        ataques.add(new Ataque("Hoja Aguda", 90, 100, Tipo.PLANTA, CategoriaAtaque.FISICO, 15,0, true, AtributoAtaque.CORTE));
-        ataques.add(new Ataque("Asta Drenaje", 90, 100, Tipo.PLANTA, CategoriaAtaque.FISICO, 10, 0, true, AtributoAtaque.CURACION));
-        ataques.add(new Ataque("Latigazo", 120, 85, Tipo.PLANTA, CategoriaAtaque.FISICO, 10, 0, true, null));
-        ataques.add(new Ataque("Gigadrenado", 75, 100, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 10, 0, false, AtributoAtaque.CURACION));
-        ataques.add(new Ataque("Rayo Solar", 120, 100, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 10, 0, false, null));
-        ataques.add(new Ataque("Lluevehojas", 130, 90, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 5, 0, false, null));
+        ataques.add(new Ataque("Absorber", 20, 100, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 25, 0, false, AtributoAtaque.CURACION)); //
+        ataques.add(new Ataque("Danza Pétalo", 120, 100, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 10, 0, true, AtributoAtaque.DANZA)); //
+        ataques.add(new Ataque("Dessarrollo", 0, 0, Tipo.PLANTA, CategoriaAtaque.ESTADO, 20, 0, false, null)); //
+        ataques.add(new Ataque("Drenadoras", 0, 90, Tipo.PLANTA, CategoriaAtaque.ESTADO, 10, 0, false, null));
+        ataques.add(new Ataque("Espora", 0, 100, Tipo.PLANTA, CategoriaAtaque.ESTADO, 15, 0, false, AtributoAtaque.POLVO));
+        ataques.add(new Ataque("Hoja Afilada", 55, 95, Tipo.PLANTA, CategoriaAtaque.FISICO, 25, 0, false, AtributoAtaque.CORTE)); //
+        ataques.add(new Ataque("Látigo Cepa", 45, 100, Tipo.PLANTA, CategoriaAtaque.FISICO, 25, 0, true, null));
+        ataques.add(new Ataque("Megaagotar", 40, 100, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 15, 0, false, AtributoAtaque.CURACION)); //
+        ataques.add(new Ataque("Paralizador", 0, 75, Tipo.PLANTA, CategoriaAtaque.ESTADO, 30, 0, false, AtributoAtaque.POLVO));
+        ataques.add(new Ataque("Rayo Solar", 120, 100, Tipo.PLANTA, CategoriaAtaque.ESPECIAL, 10, 0, false, null)); //
         ataques.add(new Ataque("Somnífero", 0, 75, Tipo.PLANTA, CategoriaAtaque.ESTADO, 15, 0, false, AtributoAtaque.POLVO));
 
-        ataques.add(new Ataque("Puño Fuego", 75, 100, Tipo.FUEGO, CategoriaAtaque.FISICO, 15, 0, true, AtributoAtaque.PUNIO));
-        ataques.add(new Ataque("Patada Ígnea", 85, 90, Tipo.FUEGO, CategoriaAtaque.FISICO, 10, 0, true, null));
-        ataques.add(new Ataque("Envite Ígneo", 120, 100, Tipo.FUEGO, CategoriaAtaque.FISICO, 15, 0, true, null));
-        ataques.add(new Ataque("Pirotecnia", 70, 100, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 15, 0, false, null));
-        ataques.add(new Ataque("Lanzallamas", 90, 100, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 15, 0, false, null));
-        ataques.add(new Ataque("Anillo Ígneo", 150, 90, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 5, 0, false, null));
-        ataques.add(new Ataque("Día Soleado", 0, 0, Tipo.FUEGO, CategoriaAtaque.ESTADO, 5, 0, false, null));
+        ataques.add(new Ataque("Ascuas", 40, 100, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 25, 0, false, null)); //
+        ataques.add(new Ataque("Giro Fuego", 35, 85, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 15, 0, false, null)); //
+        ataques.add(new Ataque("Lanzallamas", 90, 100, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 15, 0, false, null)); //
+        ataques.add(new Ataque("Llamarada", 110, 85, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 5, 0, false, null)); //
+        ataques.add(new Ataque("Puño Fuego", 75, 100, Tipo.FUEGO, CategoriaAtaque.ESPECIAL, 15, 0, true, AtributoAtaque.PUNIO)); //
 
-        ataques.add(new Ataque("Cascada", 80, 100, Tipo.AGUA, CategoriaAtaque.FISICO, 15, 0, true, null));
-        ataques.add(new Ataque("Martillazo", 100, 95, Tipo.AGUA, CategoriaAtaque.FISICO, 10,0, true, null));
-        ataques.add(new Ataque("Tajo Acuático", 70, 100, Tipo.AGUA, CategoriaAtaque.FISICO, 20, 0, false, AtributoAtaque.CORTE));
-        ataques.add(new Ataque("Surf", 90, 100, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 15, 0, false, null));
+        ataques.add(new Ataque("Burbuja", 40, 100, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 30, 0, false, null)); //
+        ataques.add(new Ataque("Cascada", 80, 100, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 15, 0, true, null)); //
         ataques.add(new Ataque("Hidrobomba", 110, 80, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 5, 0, false, null));
-        ataques.add(new Ataque("Hidrocañón", 150, 90, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 5, 0, false, null));
-        ataques.add(new Ataque("Hidrochorro", 0, 0, Tipo.AGUA, CategoriaAtaque.ESTADO, 15, 0, false, null));
+        ataques.add(new Ataque("Martillazo", 100, 95, Tipo.AGUA, CategoriaAtaque.FISICO, 10, 0, true, null)); //
+        ataques.add(new Ataque("Pistola Agua", 40, 100, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 25, 0, false, null));
+        ataques.add(new Ataque("Rayo Burbuja", 65, 100, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 20, 0, false, null));//
+        ataques.add(new Ataque("Refugio", 0, 0, Tipo.AGUA, CategoriaAtaque.ESTADO, 40, 0, false, null));
+        ataques.add(new Ataque("Surf", 90, 100, Tipo.AGUA, CategoriaAtaque.ESPECIAL, 15, 0, false, null)); //
+        ataques.add(new Ataque("Tenaza", 35, 85, Tipo.AGUA, CategoriaAtaque.FISICO, 15, 0, true, null)); //
 
-        ataques.add(new Ataque("Chispa", 65, 100, Tipo.ELECTRICO, CategoriaAtaque.FISICO, 20, 0, true, null));
-        ataques.add(new Ataque("Voltio Cruel", 90, 100, Tipo.ELECTRICO, CategoriaAtaque.FISICO, 15, 0, true, null));
-        ataques.add(new Ataque("Placaje Eléctrico", 120, 100, Tipo.ELECTRICO, CategoriaAtaque.FISICO, 15, 0, true, null));
-        ataques.add(new Ataque("Puño Trueno", 75, 100, Tipo.ELECTRICO, CategoriaAtaque.ESPECIAL, 15, 0, true, AtributoAtaque.PUNIO));
-        ataques.add(new Ataque("Rayo", 90, 100, Tipo.ELECTRICO, CategoriaAtaque.ESPECIAL, 15, 0, false, null));
-        ataques.add(new Ataque("Trueno", 110, 70, Tipo.ELECTRICO, CategoriaAtaque.ESPECIAL, 10, 0, false, null));
-        ataques.add(new Ataque("Campo Eléctrico", 0, 0, Tipo.ELECTRICO, CategoriaAtaque.ESTADO, 10, 0, false, null));
+        ataques.add(new Ataque("Impactrueno", 40, 100, Tipo.ELECTRICO, CategoriaAtaque.ESPECIAL, 30, 0, false, null)); //
+        ataques.add(new Ataque("Onda Trueno", 0, 90, Tipo.ELECTRICO, CategoriaAtaque.ESTADO, 20, 0, false, null)); //
+        ataques.add(new Ataque("Puño Trueno", 75, 100, Tipo.ELECTRICO, CategoriaAtaque.FISICO, 15, 0, true, AtributoAtaque.PUNIO)); //
+        ataques.add(new Ataque("Rayo", 90, 100, Tipo.ELECTRICO, CategoriaAtaque.ESPECIAL, 15, 0, false, null)); //
+        ataques.add(new Ataque("Trueno", 110, 70, Tipo.ELECTRICO, CategoriaAtaque.ESPECIAL, 10, 0, false, null)); //
 
-        ataques.add(new Ataque("Fuerza Telúrica", 90, 100, Tipo.TIERRA, CategoriaAtaque.FISICO, 10, 0, false, null));
-        ataques.add(new Ataque("Terremoto", 100, 100, Tipo.TIERRA, CategoriaAtaque.FISICO, 10, 0, false, null));
-        ataques.add(new Ataque("Fisura", 1000000, 30, Tipo.TIERRA, CategoriaAtaque.FISICO, 5, 0, false, null));
-        ataques.add(new Ataque("Bomba Fango", 65, 85, Tipo.TIERRA, CategoriaAtaque.ESPECIAL, 10, 0, false, AtributoAtaque.PROYECTIL));
-        ataques.add(new Ataque("Tierra Viva", 90, 100, Tipo.TIERRA, CategoriaAtaque.ESPECIAL, 10, 0, false, null));
-        ataques.add(new Ataque("Simún de Arena", 100, 80, Tipo.TIERRA, CategoriaAtaque.ESPECIAL, 10, 0, false, AtributoAtaque.VIENTO));
         ataques.add(new Ataque("Ataque Arena", 0, 100, Tipo.TIERRA, CategoriaAtaque.ESTADO, 15, 0, false, null));
+        ataques.add(new Ataque("Excavar", 80, 100, Tipo.TIERRA, CategoriaAtaque.FISICO, 10, 0, true, null)); //
+        ataques.add(new Ataque("Fisura", 1000, 30, Tipo.TIERRA, CategoriaAtaque.FISICO, 5, 0, false, null)); //
+        ataques.add(new Ataque("Hueso Palo", 65, 85, Tipo.TIERRA, CategoriaAtaque.FISICO, 20, 0, false, null)); //
+        ataques.add(new Ataque("Huesomerang", 50, 90, Tipo.TIERRA, CategoriaAtaque.FISICO, 10, 0, false, null)); //
+        ataques.add(new Ataque("Terremoto", 100, 100, Tipo.TIERRA, CategoriaAtaque.FISICO, 10, 0, false, null)); //
 
-        ataques.add(new Ataque("Avalancha", 75, 90, Tipo.ROCA, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Testarazo", 150, 80, Tipo.ROCA, CategoriaAtaque.FISICO, 5));
-        ataques.add(new Ataque("Tormenta de Diamantes", 100, 95, Tipo.ROCA, CategoriaAtaque.FISICO, 5));
-        ataques.add(new Ataque("Poder Pasado", 60, 100, Tipo.ROCA, CategoriaAtaque.ESPECIAL, 5));
-        ataques.add(new Ataque("Joya de Luz", 80, 100, Tipo.ROCA, CategoriaAtaque.ESPECIAL, 20));
-        ataques.add(new Ataque("Rayo Meteórico", 120, 90, Tipo.ROCA, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Trampa  Rocas", 0, 0, Tipo.ROCA, CategoriaAtaque.ESTADO, 20));
+        ataques.add(new Ataque("Avalancha", 75, 90, Tipo.ROCA, CategoriaAtaque.FISICO, 10, 0, false, null)); //
+        ataques.add(new Ataque("Lanzarrocas", 50, 90, Tipo.ROCA, CategoriaAtaque.FISICO, 15, 0, false, null));
 
-        ataques.add(new Ataque("Puño Hielo", 75, 100, Tipo.HIELO, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Chuzos", 85, 90, Tipo.HIELO, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Martillo Hielo", 100, 90, Tipo.HIELO, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Rayo Aurora", 65, 100, Tipo.HIELO, CategoriaAtaque.ESPECIAL, 20));
-        ataques.add(new Ataque("Rayo Hielo", 90, 100, Tipo.HIELO, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Llama Gélida", 140, 90, Tipo.HIELO, CategoriaAtaque.ESPECIAL, 5));
-        ataques.add(new Ataque("Granizo", 0, 0, Tipo.HIELO, CategoriaAtaque.ESTADO, 10));
+        ataques.add(new Ataque("Neblina", 0, 0, Tipo.HIELO, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Niebla", 0, 0, Tipo.HIELO, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Puño Hielo", 75, 100, Tipo.HIELO, CategoriaAtaque.FISICO, 15, 0, true, AtributoAtaque.PUNIO)); //
+        ataques.add(new Ataque("Rayo Aurora", 65, 100, Tipo.HIELO, CategoriaAtaque.ESPECIAL, 20, 0, false, null)); //
+        ataques.add(new Ataque("Rayo Hielo", 90, 100, Tipo.HIELO, CategoriaAtaque.ESPECIAL, 10, 0, false, null)); //
+        ataques.add(new Ataque("Ventisca", 110, 70, Tipo.HIELO, CategoriaAtaque.ESPECIAL, 5, 0, false, AtributoAtaque.VIENTO)); //
 
-        ataques.add(new Ataque("Pico Taladro", 80, 100, Tipo.VOLADOR, CategoriaAtaque.FISICO, 20));
-        ataques.add(new Ataque("Vuelo", 90, 95, Tipo.VOLADOR, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Pájaro Osado", 120, 100, Tipo.VOLADOR, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Tajo Aéreo", 75, 95, Tipo.VOLADOR, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Ala Mortífera", 80, 100, Tipo.VOLADOR, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Vendaval", 100, 70, Tipo.VOLADOR, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Despejar", 0, 0, Tipo.VOLADOR, CategoriaAtaque.ESTADO, 15));
+        ataques.add(new Ataque("Ataque Aéreo", 140, 90, Tipo.VOLADOR, CategoriaAtaque.FISICO, 5, 0, false, null)); //
+        ataques.add(new Ataque("Ataque Ala", 60, 100, Tipo.VOLADOR, CategoriaAtaque.FISICO, 35, 0, true, null));
+        ataques.add(new Ataque("Espejo", 0, 0, Tipo.VOLADOR, CategoriaAtaque.ESTADO, 20, 0, false, null));
+        ataques.add(new Ataque("Pico Taladro", 80, 100, Tipo.VOLADOR, CategoriaAtaque.FISICO, 20, 0, true, null));
+        ataques.add(new Ataque("Picotazo", 35, 100, Tipo.VOLADOR, CategoriaAtaque.FISICO, 35, 0, true, null));
+        ataques.add(new Ataque("Tornado", 40, 100, Tipo.VOLADOR, CategoriaAtaque.ESPECIAL, 35, 0, false, AtributoAtaque.VIENTO)); //
+        ataques.add(new Ataque("Vuelo", 90, 95, Tipo.VOLADOR, CategoriaAtaque.FISICO, 15, 0, true, null)); //
 
-        ataques.add(new Ataque("Ida y Vuelta", 70, 100, Tipo.BICHO, CategoriaAtaque.FISICO, 20));
-        ataques.add(new Ataque("Tijera X", 80, 100, Tipo.BICHO, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Escaramuza", 100, 100, Tipo.BICHO, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Rayo Señal", 75, 100, Tipo.BICHO, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Bola de Polen", 90, 100, Tipo.BICHO, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Zumbido", 90, 100, Tipo.BICHO, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Disparo Demora", 0, 95, Tipo.BICHO, CategoriaAtaque.ESTADO, 40));
+        ataques.add(new Ataque("Chupavidas", 80, 100, Tipo.BICHO, CategoriaAtaque.FISICO, 10, 0, true, AtributoAtaque.CURACION)); //
+        ataques.add(new Ataque("Disparo Demora", 0, 95, Tipo.BICHO, CategoriaAtaque.ESTADO, 40, 0, false, null));
+        ataques.add(new Ataque("Doble Ataque", 25, 100, Tipo.BICHO, CategoriaAtaque.FISICO, 20, 0, false, null)); //
+        ataques.add(new Ataque("Pin Misil", 25, 95, Tipo.BICHO, CategoriaAtaque.FISICO, 20, 0, false, null)); //
 
-        ataques.add(new Ataque("Llave Vital", 70, 0, Tipo.LUCHA, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Gancho Alto", 85, 90, Tipo.LUCHA, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Patada Salto Alta", 120, 90, Tipo.LUCHA, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Esfera Aural", 80, 0, Tipo.LUCHA, CategoriaAtaque.ESPECIAL, 20));
-        ataques.add(new Ataque("Sable Místico", 85, 100, Tipo.LUCHA, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Onda Certera", 120, 70, Tipo.LUCHA, CategoriaAtaque.ESPECIAL, 5));
-        ataques.add(new Ataque("Corpulencia", 0, 0, Tipo.LUCHA, CategoriaAtaque.ESTADO, 20));
+        ataques.add(new Ataque("Contraataque", 60, 100, Tipo.LUCHA, CategoriaAtaque.FISICO, 20, -5, true, null)); //
+        ataques.add(new Ataque("Doble Patada", 30, 100, Tipo.LUCHA, CategoriaAtaque.FISICO, 30, 0, true, null)); //
+        ataques.add(new Ataque("Golpe Kárate", 50, 100, Tipo.LUCHA, CategoriaAtaque.FISICO, 25, 0, true, null)); //
+        ataques.add(new Ataque("Patada Baja", 60, 100, Tipo.LUCHA, CategoriaAtaque.FISICO, 25, 0, true, null)); //
+        ataques.add(new Ataque("Patada Giro", 60, 85, Tipo.LUCHA, CategoriaAtaque.FISICO, 15, 0, true, null)); //
+        ataques.add(new Ataque("Patada Salto", 100, 95, Tipo.LUCHA, CategoriaAtaque.FISICO, 10, 0, true, null)); //
+        ataques.add(new Ataque("Patada Salto Alta", 130, 90, Tipo.LUCHA, CategoriaAtaque.FISICO, 10, 0, true, null)); //
+        ataques.add(new Ataque("Sísmico", 60, 100, Tipo.LUCHA, CategoriaAtaque.FISICO, 20, 0, true, null)); //
+        ataques.add(new Ataque("Sumisión", 80, 80, Tipo.LUCHA, CategoriaAtaque.FISICO, 20, 0, true, null)); //
 
-        ataques.add(new Ataque("Sombra Vil", 40, 100, Tipo.FANTASMA, CategoriaAtaque.FISICO, 30));
-        ataques.add(new Ataque("Puntada Sombría", 90, 100, Tipo.FANTASMA, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Golpe Umbrío", 120, 100, Tipo.FANTASMA, CategoriaAtaque.FISICO, 5));
-        ataques.add(new Ataque("Tinieblas", 60, 100, Tipo.FANTASMA, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Bola Sombra", 80, 100, Tipo.FANTASMA, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Orbes Espectro", 110, 100, Tipo.FANTASMA, CategoriaAtaque.ESPECIAL, 5));
-        ataques.add(new Ataque("Mismo Destino", 0, 0, Tipo.FANTASMA, CategoriaAtaque.ESTADO, 15));
+        ataques.add(new Ataque("Lengüetazo", 30, 100, Tipo.FANTASMA, CategoriaAtaque.FISICO, 30, 0, true, null)); //
+        ataques.add(new Ataque("Rayo Confuso", 0, 100, Tipo.FANTASMA, CategoriaAtaque.ESTADO, 10, 0, false, null)); //
+        ataques.add(new Ataque("Tinieblas", 60, 100, Tipo.FANTASMA, CategoriaAtaque.ESPECIAL, 15, 0, false, null)); //
 
-        ataques.add(new Ataque("Psicocorte", 70, 100, Tipo.PSIQUICO, CategoriaAtaque.FISICO, 20));
-        ataques.add(new Ataque("Cabezazo Zen", 80, 90, Tipo.PSIQUICO, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Psicocolmillo", 85, 100, Tipo.PSIQUICO, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Psiquico", 90, 100, Tipo.PSIQUICO, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Premonición", 120, 100, Tipo.PSIQUICO, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Láser Prisma", 160, 100, Tipo.PSIQUICO, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Cambiafuerza", 0, 0, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 10));
+        ataques.add(new Ataque("Agilidad", 0, 0, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Amnesia", 0, 0, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 20, 0, false, null));
+        ataques.add(new Ataque("Barrera", 0, 0, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 20, 0, false, null));
+        ataques.add(new Ataque("Comesueños", 100, 100, Tipo.PSIQUICO, CategoriaAtaque.ESPECIAL, 15, 0, false, AtributoAtaque.CURACION)); //
+        ataques.add(new Ataque("Confusión", 50, 100, Tipo.PSIQUICO, CategoriaAtaque.ESPECIAL, 25, 0, false, null)); //
+        ataques.add(new Ataque("Descanso", 0, 0, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 5, 0, false, AtributoAtaque.CURACION));
+        ataques.add(new Ataque("Hipnosis", 0, 60, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 20, 0, false, null));
+        ataques.add(new Ataque("Kinético", 0, 80, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 15, 0, false, null));
+        ataques.add(new Ataque("Meditación", 0, 0, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 40, 0, false, null));
+        ataques.add(new Ataque("Pantalla de Luz", 0, 0, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 30, 0, false, null));
+        ataques.add(new Ataque("Psicoonda", 60, 100, Tipo.PSIQUICO, CategoriaAtaque.ESPECIAL, 15, 0, false, null)); //
+        ataques.add(new Ataque("Psicorrayo", 65, 100, Tipo.PSIQUICO, CategoriaAtaque.ESPECIAL, 20, 0, false, null)); //
+        ataques.add(new Ataque("Psíquico", 90, 100, Tipo.PSIQUICO, CategoriaAtaque.ESPECIAL, 10, 0, false, null)); //
+        ataques.add(new Ataque("Reflejo", 0, 0, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 20, 0, false, null));
+        ataques.add(new Ataque("Teletransporte", 0, 0, Tipo.PSIQUICO, CategoriaAtaque.ESTADO, 20, -6, false, null));
 
-        ataques.add(new Ataque("Finta", 60, 0, Tipo.SINIESTRO, CategoriaAtaque.FISICO, 20));
-        ataques.add(new Ataque("Juego Sucio", 95, 100, Tipo.SINIESTRO, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Golpe Bajo", 70, 100, Tipo.SINIESTRO, CategoriaAtaque.FISICO, 5));
-        ataques.add(new Ataque("Pulso Umbrío", 80, 100, Tipo.SINIESTRO, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Furia Candente", 90, 100, Tipo.SINIESTRO, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Umbreozona", 90, 100, Tipo.SINIESTRO, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Robo", 0, 0, Tipo.SINIESTRO, CategoriaAtaque.ESTADO, 10));
+        ataques.add(new Ataque("Ácido", 40, 100, Tipo.VENENO, CategoriaAtaque.ESPECIAL, 30, 0, false, null)); //
+        ataques.add(new Ataque("Armadura Ácida", 0, 0, Tipo.VENENO, CategoriaAtaque.ESTADO, 20, 0, false, null));
+        ataques.add(new Ataque("Gas Venenoso", 0, 90, Tipo.VENENO, CategoriaAtaque.ESTADO, 40, 0, false, null));
+        ataques.add(new Ataque("Picotazo Venenoso", 15, 100, Tipo.VENENO, CategoriaAtaque.FISICO, 35, 0, false, null)); //
+        ataques.add(new Ataque("Polución", 30, 70, Tipo.VENENO, CategoriaAtaque.ESPECIAL, 20, 0, false, null)); //
+        ataques.add(new Ataque("Polvo Veneno", 0, 75, Tipo.VENENO, CategoriaAtaque.ESTADO, 35, 0, false, AtributoAtaque.POLVO));
+        ataques.add(new Ataque("Residuos", 65, 100, Tipo.VENENO, CategoriaAtaque.ESPECIAL, 20, 0, false, null)); //
+        ataques.add(new Ataque("Tóxico", 0, 90, Tipo.VENENO, CategoriaAtaque.ESTADO, 10, 0, false, null));
 
-        ataques.add(new Ataque("Lanzamugre", 120, 80, Tipo.VENENO, CategoriaAtaque.FISICO, 5));
-        ataques.add(new Ataque("Puya Nociva", 80, 100, Tipo.VENENO, CategoriaAtaque.FISICO, 20));
-        ataques.add(new Ataque("Veneno X", 70, 100, Tipo.VENENO, CategoriaAtaque.FISICO, 20));
-        ataques.add(new Ataque("Bomba Lodo", 90, 100, Tipo.VENENO, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Cadena Virulenta", 100, 100, Tipo.VENENO, CategoriaAtaque.ESPECIAL, 5));
-        ataques.add(new Ataque("Niebla Clara", 50, 0, Tipo.VENENO, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Búnker", 0, 0, Tipo.VENENO, CategoriaAtaque.ESTADO, 10));
+        ataques.add(new Ataque("Mordisco", 60, 100, Tipo.SINIESTRO, CategoriaAtaque.FISICO, 25, 0, true, AtributoAtaque.MORDISCO)); //
 
-        ataques.add(new Ataque("Cabeza de Hierro", 80, 100, Tipo.ACERO, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Puño Meteoro", 90, 90, Tipo.ACERO, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Cola Férrea", 100, 75, Tipo.ACERO, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Disparo Espejo", 65, 85, Tipo.ACERO, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Foco Resplandor", 80, 100, Tipo.ACERO, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Deseo Oculto", 140, 100, Tipo.ACERO, CategoriaAtaque.ESPECIAL, 5));
-        ataques.add(new Ataque("Cambio de Marcha", 0, 0, Tipo.ACERO, CategoriaAtaque.ESTADO, 10));
+        ataques.add(new Ataque("Furia Dragón", 60, 100, Tipo.DRAGON, CategoriaAtaque.ESPECIAL, 10, 0, false, null)); //
 
-        ataques.add(new Ataque("Cola Dragón", 60, 90, Tipo.DRAGON, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Garra Dragón", 80, 100, Tipo.DRAGON, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Enfado", 120, 100, Tipo.DRAGON, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Furia Dragón", 40, 100, Tipo.DRAGON, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Pulso Dragón", 85, 100, Tipo.DRAGON, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Cometa Draco", 130, 90, Tipo.DRAGON, CategoriaAtaque.ESPECIAL, 5));
-        ataques.add(new Ataque("Estruendo Escama", 0, 0, Tipo.DRAGON, CategoriaAtaque.ESTADO, 5));
 
-        ataques.add(new Ataque("Choque Anímico", 75, 100, Tipo.HADA, CategoriaAtaque.FISICO, 15));
-        ataques.add(new Ataque("Carantoña", 90, 90, Tipo.HADA, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Feerichoque", 100, 100, Tipo.HADA, CategoriaAtaque.FISICO, 10));
-        ataques.add(new Ataque("Brillo Mágico", 80, 100, Tipo.HADA, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Fuerza Lunar", 95, 100, Tipo.HADA, CategoriaAtaque.ESPECIAL, 15));
-        ataques.add(new Ataque("Feerichoque", 100, 100, Tipo.HADA, CategoriaAtaque.ESPECIAL, 10));
-        ataques.add(new Ataque("Cerrojo Feérico", 0, 0, Tipo.HADA, CategoriaAtaque.ESTADO, 10));
 
         for (Ataque ataque : ataques) {
             mapaAtaques.put(ataque.getNombre(), ataque);

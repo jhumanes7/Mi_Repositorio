@@ -8,7 +8,6 @@ public class EleccionPokemon {
 
     public static Pokemon eleccionJugador (Scanner sc, Random random) {
 
-
         int eleccion;
 
         do {

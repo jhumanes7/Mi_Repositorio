@@ -13,17 +13,17 @@
                     new ArrayList<>(List.of(
                             ListaAtaque.getAtaque("Rayo Solar"),
                             ListaAtaque.getAtaque("Somnífero"),
-                            ListaAtaque.getAtaque("Gigadrenado"),
-                            ListaAtaque.getAtaque("Bomba Lodo")
+                            ListaAtaque.getAtaque("Drenadoras"),
+                            ListaAtaque.getAtaque("Tóxico")
                     ))));
 
             pokemons.add(new Pokemon(6, "Charizard", 100, new ArrayList<>(List.of(Tipo.FUEGO, Tipo.VOLADOR)),
                     78, 84, 78, 109, 85, 100,
                     new ArrayList<>(List.of(
                             ListaAtaque.getAtaque("Lanzallamas"),
-                            ListaAtaque.getAtaque("Garra Dragón"),
-                            ListaAtaque.getAtaque("Tajo Aéreo"),
-                            ListaAtaque.getAtaque("Anillo Ígneo")
+                            ListaAtaque.getAtaque("Furia Dragón"),
+                            ListaAtaque.getAtaque("Ataque Aéreo"),
+                            ListaAtaque.getAtaque("Giro Fuego")
                             ))));
 
             pokemons.add(new Pokemon(9, "Blastoise", 100, new ArrayList<>(List.of(Tipo.AGUA)),
@@ -32,70 +32,70 @@
                             ListaAtaque.getAtaque("Hidrobomba"),
                             ListaAtaque.getAtaque("Surf"),
                             ListaAtaque.getAtaque("Rayo Hielo"),
-                            ListaAtaque.getAtaque("Giro Rápido")
+                            ListaAtaque.getAtaque("Refugio")
                     ))));
 
             pokemons.add(new Pokemon(12, "Butterfree", 100, new ArrayList<>(List.of(Tipo.BICHO, Tipo.VOLADOR)),
                     60, 45, 50, 90, 80, 70,
                     new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
+                            ListaAtaque.getAtaque("Pin Misil"),
+                            ListaAtaque.getAtaque("Ataque Ala"),
+                            ListaAtaque.getAtaque("Espora"),
+                            ListaAtaque.getAtaque("Fortaleza")
                     ))));
 
             pokemons.add(new Pokemon(15, "Beedrill", 100, new ArrayList<>(List.of(Tipo.BICHO, Tipo.VENENO)),
                     65, 90, 40, 45, 80, 75,
                     new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
+                            ListaAtaque.getAtaque("Picotazo Venenoso"),
+                            ListaAtaque.getAtaque("Golpes Furia"),
+                            ListaAtaque.getAtaque("Pin Misil"),
+                            ListaAtaque.getAtaque("Tóxico")
                     ))));
 
             pokemons.add(new Pokemon(18, "Pidgeot", 100, new ArrayList<>(List.of(Tipo.NORMAL, Tipo.VOLADOR)),
                     83, 80, 75, 70, 70, 101,
                     new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
+                            ListaAtaque.getAtaque("Ataque Rápido"),
+                            ListaAtaque.getAtaque("Vuelo"),
+                            ListaAtaque.getAtaque("Tornado"),
+                            ListaAtaque.getAtaque("Látigo")
                     ))));
 
             pokemons.add(new Pokemon(20, "Raticate", 100, new ArrayList<>(List.of(Tipo.NORMAL)),
                     55, 81, 60, 50, 70, 97,
                     new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
+                            ListaAtaque.getAtaque("Superdiente"),
+                            ListaAtaque.getAtaque("Hipercolmillo"),
+                            ListaAtaque.getAtaque("Ataque Rápido"),
+                            ListaAtaque.getAtaque("Mordisco")
                     ))));
 
             pokemons.add(new Pokemon(22, "Ferow", 100, new ArrayList<>(List.of(Tipo.NORMAL, Tipo.VOLADOR)),
                     65, 90, 65, 61, 61, 100,
                     new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
+                            ListaAtaque.getAtaque("Ataque Aéreo"),
+                            ListaAtaque.getAtaque("Pico Taladro"),
+                            ListaAtaque.getAtaque("Doble Equipo"),
+                            ListaAtaque.getAtaque("Foco Energía")
                     ))));
 
             pokemons.add(new Pokemon(24, "Arbok", 100, new ArrayList<>(List.of(Tipo.VENENO)),
                     60, 95, 69, 65, 79, 80,
                     new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
+                            ListaAtaque.getAtaque("Residuos"),
+                            ListaAtaque.getAtaque("Tóxico"),
+                            ListaAtaque.getAtaque("Mordisco"),
+                            ListaAtaque.getAtaque("Excavar")
                     ))));
 
             pokemons.add(new Pokemon(26, "Raichu", 100, new ArrayList<>(List.of(Tipo.ELECTRICO)),
                     60, 90, 55, 90, 80, 110,
                     new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
+                            ListaAtaque.getAtaque("Ataque Rápido"),
+                            ListaAtaque.getAtaque("Doble Equipo"),
+                            ListaAtaque.getAtaque("Rayo"),
+                            ListaAtaque.getAtaque("Trueno")
                     ))));
 
             pokemons.add(new Pokemon(28, "Sandslash", 100, new ArrayList<>(List.of(Tipo.TIERRA)),
@@ -730,33 +730,6 @@
 
             pokemons.add(new Pokemon(151, "Mew", 100, new ArrayList<>(List.of(Tipo.PSIQUICO)),
                     100, 100, 100, 100, 100, 100,
-                    new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
-                    ))));
-
-            pokemons.add(new Pokemon(196, "Espeon", 100, new ArrayList<>(List.of(Tipo.PSIQUICO)),
-                    65, 65, 60, 130, 95, 110,
-                    new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
-                    ))));
-
-            pokemons.add(new Pokemon(198, "Umbreon", 100, new ArrayList<>(List.of(Tipo.SINIESTRO)),
-                    95, 65, 110, 60, 130, 65,
-                    new ArrayList<>(List.of(
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque(""),
-                            ListaAtaque.getAtaque("")
-                    ))));
-
-            pokemons.add(new Pokemon(248, "Tyranitar", 100, new ArrayList<>(List.of(Tipo.ROCA, Tipo.SINIESTRO)),
-                    100, 134, 110, 95, 100, 61,
                     new ArrayList<>(List.of(
                             ListaAtaque.getAtaque(""),
                             ListaAtaque.getAtaque(""),

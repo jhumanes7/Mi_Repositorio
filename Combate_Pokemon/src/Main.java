@@ -1,8 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class
-Main {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
@@ -18,3 +17,6 @@ Main {
     }
 }
 
+
+// LOS ATAQUES DE ESTADO HACEN 1 DE DAÑO Y EL DAÑO SE ACUMULA EN EL MISMO POKEMON
+// BORRAR O RELLENAR POKEMONS SIN ATAQUES PARA PROBAR MAIN

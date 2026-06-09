@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Ataque {
     private String nombre;
     private int potencia;
@@ -8,6 +5,7 @@ public class Ataque {
     private Tipo tipo;
     private CategoriaAtaque categoria;
     private int pp;
+    private int ppRestantes;
     private int prioridad;
     private boolean contacto;
     private AtributoAtaque atributo;
@@ -20,6 +18,7 @@ public class Ataque {
         this.tipo = tipo;
         this.categoria = categoria;
         this.pp = pp;
+        this.ppRestantes = pp;
         this.prioridad = prioridad;
         this.contacto = contacto;
         this.atributo = atributo;
@@ -63,6 +62,46 @@ public class Ataque {
 
     public void setCategoria(CategoriaAtaque categoria) {
         this.categoria = categoria;
+    }
+
+    public int getPp() {
+        return pp;
+    }
+
+    public void setPp(int pp) {
+        this.pp = pp;
+    }
+
+    public int getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(int prioridad) {
+        this.prioridad = prioridad;
+    }
+
+    public boolean isContacto() {
+        return contacto;
+    }
+
+    public void setContacto(boolean contacto) {
+        this.contacto = contacto;
+    }
+
+    public AtributoAtaque getAtributo() {
+        return atributo;
+    }
+
+    public void setAtributo(AtributoAtaque atributo) {
+        this.atributo = atributo;
+    }
+
+    public int getPpRestantes() {
+        return ppRestantes;
+    }
+
+    public void setPpRestantes(int ppRestantes) {
+        this.ppRestantes = ppRestantes;
     }
 
     @Override

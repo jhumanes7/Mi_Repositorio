@@ -2,17 +2,20 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class SistemaCombate {
-    public static void combate(Pokemon pokemonJugador, Pokemon pokemonRival, Scanner sc, Random random) {
+    static boolean jugadorTienePP = true;
+    static boolean enemigoTienePP = true;
+
+    public static void combate(Pokemon pokemonJugador, Pokemon pokemonEnemigo, Scanner sc, Random random) {
         System.out.println("\nEMPIEZA EL COMBATE ▼");
         sc.nextLine();
 
         System.out.println("Adelante " + pokemonJugador.getNombre() + "\n");
 
-        System.out.println("El enemigo ha elegido a " + pokemonRival.getNombre());
+        System.out.println("El enemigo ha elegido a " + pokemonEnemigo.getNombre());
 
         int contador = 0;
 
-        while (pokemonJugador.estaVivo() && pokemonRival.estaVivo()) {
+        while (pokemonJugador.estaVivo() && pokemonEnemigo.estaVivo()) {
             contador++;
 
             System.out.println("\nTURNO " + contador + " ▼");
@@ -23,9 +26,13 @@ public class SistemaCombate {
             int ataqueJugador;
 
             do {
-                for (int i = 0; i < pokemonJugador.getAtaques().size(); i++) {
-                    System.out.println((i + 1) + ". " + pokemonJugador.getAtaques().get(i).getNombre() +
-                            " (potencia " + pokemonJugador.getAtaques().get(i).getPotencia() + ")");
+                for (int i = 1; i < pokemonJugador.getAtaques().size(); i++) {
+                    System.out.printf("%-20s", i + ". " + pokemonJugador.getAtaques().get(i - 1).getNombre() + " PP " +
+                            pokemonJugador.getAtaques().get(i - 1).getPpRestantes() + "/" + pokemonJugador.getAtaques().get(i - 1).getPp() + "   ");
+
+                        if (i % 2 == 0) {
+                            System.out.println();
+                        }
                 }
 
                 ataqueJugador = sc.nextInt() - 1;
@@ -33,108 +40,79 @@ public class SistemaCombate {
 
                 if (ataqueJugador < 0 || ataqueJugador >= pokemonJugador.getAtaques().size()) {
                     System.out.println("\n--Número Incorrecto--\n");
+                } else if (pokemonJugador.getAtaques().get(ataqueJugador).getPpRestantes() <= 0) {
+                    System.out.println("No quedan PP restantes");
+
+                    for (int i = 0; i < pokemonJugador.getAtaques().size(); i++) {
+                        if (pokemonJugador.getAtaques().get(i).getPpRestantes() > 0) return;
+
+                        SistemaCombate.jugadorTienePP = false;
+                    }
                 }
 
-            } while (ataqueJugador < 0 || ataqueJugador >= pokemonJugador.getAtaques().size());
+            } while (ataqueJugador < 0 || ataqueJugador >= pokemonJugador.getAtaques().size() || pokemonJugador.getAtaques().get(ataqueJugador).getPpRestantes() <= 0);
 
-            int ataqueRival = random.nextInt(pokemonRival.getAtaques().size());
+            int ataqueEnemigo = random.nextInt(pokemonEnemigo.getAtaques().size());
 
-            if (elegirOrden(pokemonJugador, pokemonRival, random)) {
-                turnoJugador(ataqueJugador, pokemonJugador, pokemonRival, sc, random);
+            if (pokemonEnemigo.getAtaques().get(ataqueEnemigo).getPpRestantes() <= 0) {
+                for (int i = 0; i < pokemonEnemigo.getAtaques().size(); i++) {
+                    if (pokemonEnemigo.getAtaques().get(i).getPpRestantes() > 0) return;
 
-                if (!pokemonRival.estaVivo()) continue;
+                    SistemaCombate.enemigoTienePP = false;
+                }
 
-                turnoRival(ataqueRival, pokemonJugador, pokemonRival, random);
+                ataqueEnemigo = random.nextInt(pokemonEnemigo.getAtaques().size());
+            }
+
+            if (elegirOrden(pokemonJugador, pokemonEnemigo, pokemonJugador.getAtaques().get(ataqueJugador), pokemonEnemigo.getAtaques().get(ataqueEnemigo), random)) {
+                turnoJugador(ataqueJugador, pokemonJugador, pokemonEnemigo, sc, random);
+
+                if (!pokemonEnemigo.estaVivo()) continue;
+
+                turnoRival(ataqueEnemigo, pokemonJugador, pokemonEnemigo, random);
             } else {
-                turnoRival(ataqueRival, pokemonJugador, pokemonRival, random);
+                turnoRival(ataqueEnemigo, pokemonJugador, pokemonEnemigo, random);
 
                 if(!pokemonJugador.estaVivo()) continue;
 
-                turnoJugador(ataqueJugador, pokemonJugador, pokemonRival, sc, random);
+                turnoJugador(ataqueJugador, pokemonJugador, pokemonEnemigo, sc, random);
             }
         }
     }
 
-    public static boolean elegirOrden (Pokemon pokemonJugador, Pokemon pokemonRival, Random random) {
+
+
+    public static boolean elegirOrden (Pokemon pokemonJugador, Pokemon pokemonEnemigo, Ataque ataqueJugador, Ataque ataqueEnemigo, Random random) {
         boolean esMasRapido = false;
 
-        if (pokemonJugador.getVelocidad() > pokemonRival.getVelocidad()) {
+        if (ataqueJugador.getPrioridad() > ataqueEnemigo.getPrioridad()) {
             esMasRapido = true;
-        } else if (pokemonJugador.getVelocidad() == pokemonRival.getVelocidad()) {
-            esMasRapido = random.nextBoolean();
+        } else if (ataqueJugador.getPrioridad() == ataqueEnemigo.getPrioridad()) {
+            if (pokemonJugador.getVelocidad() > pokemonEnemigo.getVelocidad()) {
+                esMasRapido = true;
+            } else if (pokemonJugador.getVelocidad() == pokemonEnemigo.getVelocidad()) {
+                esMasRapido = random.nextBoolean();
+            }
         }
 
         return esMasRapido;
     }
 
+    public static void turnoJugador (int ataqueJugador, Pokemon pokemonJugador, Pokemon pokemonEnemigo, Scanner sc, Random random) {
+        MotorDanioCombate.atacar(ataqueJugador, pokemonJugador, pokemonEnemigo, true, random);
 
-    public static void turnoJugador (int ataqueJugador, Pokemon pokemonJugador, Pokemon pokemonRival, Scanner sc, Random random) {
-        pokemonJugador.atacar(ataqueJugador, pokemonRival, true, random);
-
-        if (!pokemonRival.estaVivo()) {
+        if (!pokemonEnemigo.estaVivo()) {
             System.out.println("\n¡HAS GANADO EL COMBATE!");
             return;
         }
     }
 
-    public static void turnoRival (int ataqueRival, Pokemon pokemonJugador, Pokemon pokemonRival, Random random) {
-        pokemonRival.atacar(ataqueRival, pokemonJugador, false, random);
+    public static void turnoRival (int ataqueEnemigo, Pokemon pokemonJugador, Pokemon pokemonEnemigo, Random random) {
+        MotorDanioCombate.atacar(ataqueEnemigo, pokemonEnemigo, pokemonJugador, false, random);
 
         if (!pokemonJugador.estaVivo()) {
             System.out.println("\n¡HAS PERDIDO EL COMBATE!");
             return;
         }
-    }
-
-    public static int calculadorDanio (Ataque ataqueUsado, Pokemon pokemonAtacante, Pokemon pokemonDefensor, boolean atacaJugador, Random random) {
-
-        double multiplicador = 1.0;
-
-        for (int i = 0; i < pokemonDefensor.getTipos().size(); i++) {
-            multiplicador *= Efectividades.multiplicador(ataqueUsado.getTipo(), pokemonDefensor.getTipos().get(i));
-        }
-
-        double danio = 0;
-
-        if (ataqueUsado.getCategoria() == CategoriaAtaque.FISICO) {
-            danio = ((double) (pokemonAtacante.getAtaqueFisico() * ataqueUsado.getPotencia()) / pokemonDefensor.getDefensaFisica()) + 2;
-        } else if (ataqueUsado.getCategoria() == CategoriaAtaque.ESPECIAL) {
-            danio = ((double) (pokemonAtacante.getAtaqueEspecial() * ataqueUsado.getPotencia()) / pokemonDefensor.getDefensaEspecial()) + 2;
-        }
-
-        for (int i = 0; i < pokemonAtacante.getTipos().size(); i++) {
-            if (pokemonAtacante.getTipos().get(i) == ataqueUsado.getTipo()) {
-                danio *= 1.5;
-            }
-        }
-
-        if (multiplicador == 0.0) {
-            if (atacaJugador) {
-                System.out.println("¡No afecta al " + pokemonDefensor.getNombre() + " enemigo");
-                return 0;
-            } else {
-                System.out.println("¡No afecta a " + pokemonDefensor.getNombre());
-                return 0;
-            }
-
-        }
-        danio *= multiplicador;
-
-        if (multiplicador > 1.0) {
-            System.out.println("\n¡Es súper eficaz!");
-        } else if (multiplicador < 1.0) {
-            System.out.println("\n¡No es muy eficaz!");
-        }
-
-        boolean critico = random.nextInt(100) < 5;
-
-        if (critico) {
-            danio *= 1.5;
-            System.out.println("¡Un crítico!");
-        }
-
-        danio *= (0.85 + random.nextDouble() * 0.15);
-
-        return Math.max(1, (int) (danio));
     }
 }
